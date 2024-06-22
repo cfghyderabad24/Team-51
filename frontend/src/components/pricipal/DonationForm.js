@@ -1,5 +1,6 @@
+// src/components/pricipal/DonationForm.js
 import React, { useState } from 'react';
-import { PayPalButton } from 'react-paypal-button-v2'; // Ensure correct import path
+import { PayPalButton } from 'react-paypal-button-v2';
 import './DonationForm.css'; // Import the CSS file
 
 const DonationForm = () => {
@@ -26,30 +27,6 @@ const DonationForm = () => {
   const handleDonationSuccess = (details, data) => {
     alert('Donation successful! Thank you for your support.');
     console.log(details, data); // You can further process the donation details here
-  };
-
-  // Function to send donation data to backend
-  const sendDonationDataToBackend = (amount) => {
-    // You can use fetch or axios to send a POST request to your backend server
-    fetch('/api/donations', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ amount }),
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to send donation data to backend');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Donation data sent to backend:', data);
-    })
-    .catch(error => {
-      console.error('Error sending donation data to backend:', error);
-    });
   };
 
   return (
@@ -81,7 +58,7 @@ const DonationForm = () => {
           amount={amount}
           onSuccess={handleDonationSuccess}
           options={{
-            clientId: 'YOUR_PAYPAL_CLIENT_ID_HERE', // Replace with your PayPal client ID
+            clientId: '', // Replace with your dummy PayPal client ID
           }}
         />
       </div>
