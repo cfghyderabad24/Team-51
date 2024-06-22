@@ -8,9 +8,11 @@ require('dotenv').config()
 
 let adminCollection
 let productCollection
+let announcementCollection
 adminApp.use((req,res,next)=>{
     adminCollection=req.app.get('adminCollection')
     productCollection=req.app.get('productCollection')
+    announcementCollection=req.app.get('announcementCollection')
     next()
 })
 
@@ -44,22 +46,20 @@ adminApp.post('/login',expressAsyncHandler(async(req,res)=>{
     }
 }))
 
-adminApp.post('/discount/:productId',expressAsyncHandler(async(req,res)=>{
-    const productId=(+req.params.productId)
-    const userCred=req.body
-    const dbUser=await adminCollection.findOne({username:userCred.username})
-    if(dbUser===null){
-        res.send({message:"Invalid username"})
-    }else{
-       const status= await bcryptjs.compare(userCred.password,dbUser.password)
-       if(status===false){
-            res.send({message:"Invalid password"})
-       }else{
-           const signedToken= jwt.sign({username:dbUser.username},process.env.SECRET_KEY,{expiresIn:200})
-           res.send({message:'Login sucess',token:signedToken,user:dbUser})
-       }
-    }
-}))
+// adminApp.post('/discount/:productId',expressAsyncHandler(async(req,res)=>{
+//     const productid=(+req.params.productId)
+//     const userCred=req.body
+//     const dbProduct=await productCollection.findOne({productId:productid})
+//     if(dbProduct===null){
+//         res.send({message:"No such product"})
+//     }else{
+       
+//     }
+// }))
 
+adminApp.post('/announcement',expressAsyncHandler(async(req,res)=>{
+    const newAnnouncement=req.body
+    const dbUser=await announcementCollection.insertOne(newAnnouncement)
+}))
 
 module.exports=adminApp
