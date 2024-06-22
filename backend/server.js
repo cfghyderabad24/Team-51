@@ -45,6 +45,7 @@ const parentApp=require('./APIs/parentApi')
 const ngoApp=require('./APIs/ngoApi')
 const govtApp=require('./APIs/govtAPi')
 const csrApp=require('./APIs/csrApi')
+const mailApp=require('./APIs/mailApi')
 
 app.use('/faculty-api',facultyApp)
 app.use('/student-api',studentApp)
@@ -52,6 +53,7 @@ app.use('/parent-api',parentApp)
 app.use('/ngo-api',ngoApp)
 app.use('/govt-api',govtApp)
 app.use('/csr-api',csrApp)
+app.use('/mail-api',mailApp)
 
 app.use((err,req,res,next)=>{
     res.send({messgae:'error',payload:err.message})

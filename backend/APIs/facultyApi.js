@@ -15,7 +15,7 @@ facultyApp.use((req,res,next)=>{
 facultyApp.post('/faculty',expressAsyncHandler(async(req,res)=>{
     const newUser=req.body
     //check for duplicate user 
-    const dbUser=await facultyCollection.findOne({username:newUser.username})
+    const dbUser=await facultyCollection.findOne({email:newUser.email})
     if(dbUser!==null){
         res.send({message:'User already exists'})
     }else{
@@ -28,22 +28,22 @@ facultyApp.post('/faculty',expressAsyncHandler(async(req,res)=>{
 
 facultyApp.post('/login',expressAsyncHandler(async(req,res)=>{
     const userCred=req.body
-    const dbUser=await facultyCollection.findOne({username:userCred.username})
+    const dbUser=await facultyCollection.findOne({email:userCred.email})
     if(dbUser===null){
-        res.send({message:"Invalid username"})
+        res.send({message:"Invalid email"})
     }else{
        const status= await bcryptjs.compare(userCred.password,dbUser.password)
        if(status===false){
             res.send({message:"Invalid password"})
        }else{
-           const signedToken= jwt.sign({username:dbUser.username},process.env.SECRET_KEY,{expiresIn:200})
+           const signedToken= jwt.sign({email:dbUser.email},process.env.SECRET_KEY,{expiresIn:200})
            res.send({message:'Login sucess',token:signedToken,user:dbUser})
        }
     }
 }))
 
 
-/*facultyApp.get('/articles/:username',verifyToken,expressAsyncHandler(async(req,res)=>{
+/*facultyApp.get('/articles/:email',verifyToken,expressAsyncHandler(async(req,res)=>{
     const username=req.params.username
     let articlesList=await articlesCollection.find({$and:[{username:username},{status:true}]}).toArray()
     res.send({message:`articles by ${username}`,payload:articlesList})
