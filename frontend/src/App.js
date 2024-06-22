@@ -1,22 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import NgosPage from './NgosPage';
-import NgoNav from './NgoNav';
-import {Routes,Route, BrowserRouter} from 'react-router-dom';
+// App.js
+import React from 'react';
 
+import Ngo from './Ngo';
 
-
-
-function App() {
+const App = () => {
   return (
+    
     <div>
-      {/* <NgoNav/> */}
-      <NgosPage/>
-      {/* <Routes>
-                    <Route path="/" element={<NgosPage />} />
-                    
-                    
-       </Routes> */}
+      <Ngo/>
     </div>
   );
 }
