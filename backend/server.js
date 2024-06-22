@@ -13,9 +13,9 @@ app.use(express.json())
 
 app.use((req, res, next) => {
     console.log(req.method, req.path)
+    res.send("hello")
     next();
 })
-
 
 
 //connect to db
