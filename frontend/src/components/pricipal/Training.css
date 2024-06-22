@@ -13,7 +13,9 @@
   }
   
   .card-container {
-    display: block; /* Change to block to stack cards vertically */
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
   }
   
   .card {
