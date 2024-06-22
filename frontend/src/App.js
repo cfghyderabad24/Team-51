@@ -9,7 +9,11 @@ import PrincipalLayout from './components/pricipal/PrincipalLayout';
 import MyProfile from './components/pricipal/MyProfile';
 import Training from './components/pricipal/Training';
 import Product from './components/pricipal/Product';
-// import DonationForm from './components/pricipal/DonationForm';
+import DonationForm from './components/pricipal/DonationFormgovt';
+import GovernmentLayout from './components/govt/GovernmentLayout';
+import DonationFormgovt from './components/pricipal/DonationFormgovt';
+import ProductGovt from './components/govt/ProductGovt';
+
 import './App.css'; 
 
 function App() {
@@ -26,7 +30,12 @@ function App() {
           <Route path="profile" element={<MyProfile />} />
           <Route path="product" element={<Product />} />
           <Route path="training" element={<Training />} />
-          {/* <Route path='donation' element={<DonationForm/>}/> */}
+          <Route path='donation' element={<DonationForm/>}/>
+        </Route>
+        <Route path="/government" element={<GovernmentLayout />}>
+          {/* <Route path="achievements" element={<Achievements />} /> */}
+          <Route path="productgovt" element={<Product />} />
+          <Route path="donationgovt" element={<DonationFormgovt />} />
         </Route>
       </Routes>
     </BrowserRouter>
