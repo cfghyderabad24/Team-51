@@ -1,82 +1,110 @@
-/* Global Styles */
-body {
+/* General styling */
+.App {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-/* Header Styles */
-header {
-    background-color: #215f3c;
-    color: #fff;
-    padding: 10px;
-}
-
-/* Navigation Styles */
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-/* Main Content Styles */
-main {
-    padding: 20px;
     text-align: center;
 }
 
-
-
-/* Game Image Styles */
-.game-image img {
-    max-width: 100%;
-    height: auto;
-    bottom: 0;
-}
-
-/* Modal Styles */
+/* Modal styling */
 .modal {
-    display: none;
     position: fixed;
-    z-index: 1;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    background: #fff;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    border-radius: 10px;
+    width: 60%;
     max-width: 600px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
+/* Leaderboard styling */
+.leaderboard {
+    margin-top: 20px;
+}
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.player-name {
+    flex: 1;
+    text-align: left;
+}
+
+.score-bar {
+    flex: 3;
+    background: #ddd;
+    height: 20px;
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.score-fill {
+    background: linear-gradient(90deg, #4caf50, #8bc34a);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+.player-score {
+    flex: 1;
+    text-align: right;
+}
+
+/* Header and navigation styling */
+header {
+    background: #282c34;
+    padding: 10px 0;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
     text-decoration: none;
+    font-weight: bold;
     cursor: pointer;
+}
+
+/* Game image styling */
+.game-image {
+    margin-top: 20px;
+}
+
+.game-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }

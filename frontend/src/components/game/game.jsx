@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import "./style.css"; // Import your CSS file
+import './style.css'; // Import your CSS file
 
 function App() {
     const [showLeaderboard, setShowLeaderboard] = useState(false);
@@ -13,14 +12,21 @@ function App() {
         setShowLeaderboard(false);
     };
 
+    // Sample data for leaderboard
+    const leaderboardData = [
+        { name: "Player 1", score: 1200 },
+        { name: "Player 2", score: 1100 },
+        { name: "Player 3", score: 900 },
+        { name: "Player 4", score: 850 },
+        { name: "Player 5", score: 750 }
+    ];
+
     return (
         <div className="App">
             <header>
                 <nav>
                     <ul>
                         <li><a href="#" onClick={openLeaderboardModal}>Leaderboard</a></li>
-                        {/* Other navigation items can be added here */}
-                        
                     </ul>
                 </nav>
             </header>
@@ -32,12 +38,23 @@ function App() {
             </main>
 
             {showLeaderboard && (
-                <div className="modal">
-                    <div className="modal-content">
+                <div className="modal" onClick={closeLeaderboardModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                         <span className="close" onClick={closeLeaderboardModal}>&times;</span>
                         <h2>Leaderboard</h2>
-                        <div id="leaderboardData">
-                            {/* Leaderboard data will be displayed here dynamically */}
+                        <div className="leaderboard">
+                            {leaderboardData.map((player, index) => (
+                                <div key={index} className="leaderboard-item">
+                                    <span className="player-name">{player.name}</span>
+                                    <div className="score-bar">
+                                        <div 
+                                            className="score-fill" 
+                                            style={{ width: `${player.score / 12}%` }} // Scale width
+                                        ></div>
+                                    </div>
+                                    <span className="player-score">{player.score}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
