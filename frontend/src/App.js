@@ -7,18 +7,14 @@ import ForgotPasssword from './components/Auth/ForgotPassword';
 import {createBrowserRouter,Routes,Route, BrowserRouter} from 'react-router-dom';
 import NewsLetter from './components/newsletter/Newsletter';
 import Update from './components/newsletter/Update';
-
+import Ngo from './Ngo'
+// import PrincipalLayout from  './PrincipalLayout'
+import Game from './components/game/game'
 function App() {
   return (
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<NewsLetter/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/signup' element={<Signup/>}/>
-      <Route path='/forgot' element={<ForgotPasssword/>}/>
-      <Route path='/update' element={<Update/>}/>
-    </Routes>
-    </BrowserRouter>
+    <div>
+      <Game/>
+    </div>
 
 
 
@@ -26,4 +22,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './style.css'; // Import your CSS file
+import easyImage from './easy.jpg'; // Adjust the path as needed
 
-function App() {
+function Game() {
     const [showLeaderboard, setShowLeaderboard] = useState(false);
+    const [showChallengeDropdown, setShowChallengeDropdown] = useState(false);
+    const [selectedChallenge, setSelectedChallenge] = useState(null);
+    const [showChallengeModal, setShowChallengeModal] = useState(false);
 
     const openLeaderboardModal = () => {
         setShowLeaderboard(true);
@@ -12,13 +16,34 @@ function App() {
         setShowLeaderboard(false);
     };
 
+    const toggleChallengeDropdown = () => {
+        setShowChallengeDropdown(!showChallengeDropdown);
+    };
+
+    const handleChallengeSelect = (challenge) => {
+        setSelectedChallenge(challenge);
+        setShowChallengeDropdown(false); // Close dropdown after selecting a challenge
+        setShowChallengeModal(true); // Open the challenge modal
+    };
+
+    const closeChallengeModal = () => {
+        setShowChallengeModal(false);
+    };
+
     // Sample data for leaderboard
     const leaderboardData = [
-        { name: "Player 1", score: 1200 },
-        { name: "Player 2", score: 1100 },
-        { name: "Player 3", score: 900 },
-        { name: "Player 4", score: 850 },
-        { name: "Player 5", score: 750 }
+        { name: "Arun", score: 1200 },
+        { name: "Pranav", score: 1100 },
+        { name: "Akanksha", score: 900 },
+        { name: "Aarefa", score: 850 },
+        { name: "Aparna", score: 750 }
+    ];
+
+    // Sample data for challenges
+    const challenges = [
+        { difficulty: "Easy", score: 10 },
+        { difficulty: "Medium", score: 50 },
+        { difficulty: "Hard", score: 100 }
     ];
 
     return (
@@ -26,14 +51,30 @@ function App() {
             <header>
                 <nav>
                     <ul>
-                        <li><a href="#" onClick={openLeaderboardModal}>Leaderboard</a></li>
+                        <li className="left"><a href="#">Login</a></li>
+                        <div className="center-nav">
+                            <li><a href="#" onClick={openLeaderboardModal}>Leaderboard</a></li>
+                            <li className="dropdown">
+                                <a href="#" onClick={toggleChallengeDropdown}>Challenge</a>
+                                {showChallengeDropdown && (
+                                    <ul className="dropdown-menu">
+                                        {challenges.map((challenge, index) => (
+                                            <li key={index} onClick={() => handleChallengeSelect(challenge)}>
+                                                <span className="challenge-level">{challenge.difficulty}</span>
+                                                <span className="challenge-score">Score: {challenge.score}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </li>
+                        </div>
                     </ul>
                 </nav>
             </header>
 
             <main>
                 <div className="game-image">
-                    <img src="wallpaper.gif" alt="Game Landscape" />
+                    <img src={easyImage} alt="Game Landscape" />
                 </div>
             </main>
 
@@ -59,8 +100,22 @@ function App() {
                     </div>
                 </div>
             )}
+
+            {showChallengeModal && selectedChallenge && (
+                <div className="modal" onClick={closeChallengeModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <span className="close" onClick={closeChallengeModal}>&times;</span>
+                        <h2>Selected Challenge</h2>
+                        <div className="challenge-details">
+                            <p>Level: {selectedChallenge.difficulty}</p>
+                            <p>Score: {selectedChallenge.score}</p>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
 
-export default App;
+export default Game;
+

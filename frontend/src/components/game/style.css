@@ -1,110 +1,164 @@
-/* General styling */
-.App {
-    font-family: Arial, sans-serif;
-    text-align: center;
+/* Navbar styles */
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    font-size: 40px;
+
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background-color: #ca4f4f; /* Light background for visibility */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Modal styling */
+nav ul li {
+    margin: 0 20px;
+    position: relative; /* Ensure dropdown menu is positioned correctly */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.left {
+    margin-right: auto; /* Push login to the left */
+}
+
+.center-nav {
+    display: flex;
+    justify-content: center; /* Center Challenge and Leaderboard */
+    flex: 1;
+    margin-top: 70px
+    
+}
+
+.dropdown-menu {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    z-index: 1;
+    top: 100%; /* Position dropdown below the nav item */
+    left: 0;
+    min-width: 160px; /* Minimum width for dropdown */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* Display score below the challenge level */
+}
+
+.dropdown-menu li:hover {
+    background-color: #f0f0f0;
+}
+
+.challenge-level {
+    font-weight: bold;
+    margin-bottom: 5px; /* Space between level and score */
+}
+
+.challenge-score {
+    font-size: 0.9em;
+    color: #555;
+}
+
+
+/* Container for the game image */
+.game-image {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    height: 100vh;           /* Takes the full viewport height */
+}
+
+/* Image styling */
+.game-image img {
+    width: 50%;              /* Adjust to your desired size */
+    height: 600px;           /* Fixed height for the image */
+    object-fit: cover;       /* Ensures the image covers the designated area */
+    object-position: center; /* Centers the image within its bounds */
+    max-width: 100%;         /* Ensures the image doesn't overflow its container */
+    max-height: 100%;        /* Ensures the image doesn't overflow its container */
+}
+
+
+/* Modal styles */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    background: #fff;
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    width: 60%;
-    max-width: 600px;
+    border-radius: 5px;
     position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
 }
 
 .close {
     position: absolute;
     top: 10px;
     right: 10px;
+    font-size: 20px;
     cursor: pointer;
-    font-size: 1.5em;
 }
 
-/* Leaderboard styling */
+/* Leaderboard styles */
 .leaderboard {
     margin-top: 20px;
 }
 
 .leaderboard-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.player-name {
-    flex: 1;
-    text-align: left;
-}
-
 .score-bar {
-    flex: 3;
-    background: #ddd;
+    width: 70%;
+    background-color: #eee;
     height: 20px;
     margin: 0 10px;
-    border-radius: 10px;
-    overflow: hidden;
 }
 
 .score-fill {
-    background: linear-gradient(90deg, #4caf50, #8bc34a);
     height: 100%;
-    border-radius: 10px;
-    transition: width 0.5s ease-in-out;
+    background-color: #4caf50;
 }
 
+.player-name,
 .player-score {
-    flex: 1;
-    text-align: right;
+    width: 15%;
+    text-align: center;
 }
 
-/* Header and navigation styling */
-header {
-    background: #282c34;
-    padding: 10px 0;
-    color: white;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav li {
-    margin: 0 15px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Game image styling */
-.game-image {
+/* Challenge modal styles */
+.challenge-details {
     margin-top: 20px;
-}
-
-.game-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center; /* Center the text for better readability */
 }
