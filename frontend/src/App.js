@@ -1,4 +1,5 @@
 
+
 import './App.css';
 // import ForgotPasssword from './components/Auth/ForgotPassword';
 import Login from './components/Auth/Login';
@@ -10,10 +11,17 @@ import Update from './components/newsletter/Update';
 import Ngo from './Ngo'
 // import PrincipalLayout from  './PrincipalLayout'
 import Game from './components/game/game'
-function App() {
+
+
+import StudentsPage from './StudentsPage';
+import FinalLanding from './FinalLanding';
+
+const App = () => {
+
   return (
     <div>
-      <Game/>
+      <FinalLanding/>
+
     </div>
 
 
