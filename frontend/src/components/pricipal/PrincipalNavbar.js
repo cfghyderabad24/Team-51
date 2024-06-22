@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './PrincipalLayout.css'
+import './PrincipalNavbar.css'
 
 const PrincipalNavbar = () => {
   return (
@@ -13,5 +13,6 @@ const PrincipalNavbar = () => {
     </nav>
   );
 };
+
 
 export default PrincipalNavbar;

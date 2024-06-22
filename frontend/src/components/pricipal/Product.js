@@ -9,7 +9,7 @@ function Product() {
           <p>Description for Course 1.</p>
           <button className="btn">Know More</button>
         </div>
-        <div className="card">
+        <div className="card"> 
           <h3>Material 2</h3>
           <p>Description for Course 2.</p>
           <button className="btn">Know More</button>
@@ -37,8 +37,8 @@ function Product() {
           <button className="btn">Know More</button>
         </div>
         </div>
-    </div>
+    </div>     
   )
 }
-
+         
 export default Product
