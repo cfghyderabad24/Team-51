@@ -71,7 +71,17 @@ function Signup() {
                         <option value="Admin">Admin</option>
                         <option value="Faculty">Faculty</option>
                         <option value="NGO">NGO</option>
-                        <option value="Govt">Govt</option>
+                        <option value="Govt">Govt</option> 
+                        <option value="Parents">Parents</option>
+                        <option value="CSR">CSR</option>
+                    </select>
+                    <select id="role" className='dropdown' value={role} onChange={(e) => setRole(e.target.value)} required>
+                        <option value="" className='dropdown'>Interests</option>
+                        {/* <option value="Student">Student</option> */}
+                        <option value="Program-CodingToy">Program-CodingToy</option>
+                        <option value="Faculty">Faculty</option>
+                        <option value="NGO">NGO</option>
+                        <option value="Govt">Govt</option> 
                         <option value="Parents">Parents</option>
                         <option value="CSR">CSR</option>
                     </select>
