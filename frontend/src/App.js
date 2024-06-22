@@ -9,7 +9,7 @@ import PrincipalLayout from './components/pricipal/PrincipalLayout';
 import MyProfile from './components/pricipal/MyProfile';
 import Training from './components/pricipal/Training';
 import Product from './components/pricipal/Product';
-import DonationForm from './components/pricipal/DonationForm';
+// import DonationForm from './components/pricipal/DonationForm';
 import './App.css'; 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
           <Route path="profile" element={<MyProfile />} />
           <Route path="product" element={<Product />} />
           <Route path="training" element={<Training />} />
-          <Route path='donation' element={<DonationForm/>}/>
+          {/* <Route path='donation' element={<DonationForm/>}/> */}
         </Route>
       </Routes>
     </BrowserRouter>
