@@ -68,6 +68,7 @@ function Signup() {
                     <select id="role" className='dropdown' value={role} onChange={(e) => setRole(e.target.value)} required>
                         <option value="" className='dropdown'>Select Role</option>
                         {/* <option value="Student">Student</option> */}
+                        <option value="Admin">Admin</option>
                         <option value="Faculty">Faculty</option>
                         <option value="NGO">NGO</option>
                         <option value="Govt">Govt</option>
