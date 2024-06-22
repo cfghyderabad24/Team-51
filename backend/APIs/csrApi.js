@@ -15,7 +15,7 @@ csrApp.use((req,res,next)=>{
 csrApp.post('/student',expressAsyncHandler(async(req,res)=>{
     const newUser=req.body
     //check for duplicate user 
-    const dbUser=await csrCollection.findOne({username:newUser.username})
+    const dbUser=await csrCollection.findOne({email:newUser.email})
     if(dbUser!==null){
         res.send({message:'User already exists'})
     }else{
@@ -28,15 +28,15 @@ csrApp.post('/student',expressAsyncHandler(async(req,res)=>{
 
 csrApp.post('/login',expressAsyncHandler(async(req,res)=>{
     const userCred=req.body
-    const dbUser=await csrCollection.findOne({username:userCred.username})
+    const dbUser=await csrCollection.findOne({email:userCred.email})
     if(dbUser===null){
-        res.send({message:"Invalid username"})
+        res.send({message:"Invalid email"})
     }else{
        const status= await bcryptjs.compare(userCred.password,dbUser.password)
        if(status===false){
             res.send({message:"Invalid password"})
        }else{
-           const signedToken= jwt.sign({username:dbUser.username},process.env.SECRET_KEY,{expiresIn:200})
+           const signedToken= jwt.sign({email:dbUser.email},process.env.SECRET_KEY,{expiresIn:200})
            res.send({message:'Login sucess',token:signedToken,user:dbUser})
        }
     }
