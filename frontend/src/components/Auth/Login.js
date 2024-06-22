@@ -10,9 +10,10 @@ function Login() {
     const navigate = useNavigate(); 
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault();  
         try {
-            const response = await axios.post('http://localhost:4000/api/users/login', { email, password });
+        
+            const response = await axios.post('http://localhost:4000//users/login', { email, password });
             setMessage(response.data.message);
             if (response.data.redirectTo) {
                 navigate('/'); // Redirect to home page

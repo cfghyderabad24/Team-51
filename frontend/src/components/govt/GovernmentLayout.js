@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-// Import the CSS file for the navbar styling
+import '../pricipal/PrincipalLayout.css'
 
 const GovernmentLayout = () => {
   return (
     <div>
-      <nav>
+      <nav className="navbar mt-0">
         <ul>
-          <li><Link to="productgovt">Products</Link></li>
+          <li><Link to="">Products</Link></li>
           <li><Link to="donationgovt">Donation</Link></li>
         </ul>
       </nav>

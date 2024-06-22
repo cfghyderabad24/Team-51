@@ -27,14 +27,14 @@ function App() {
         <Route path="/update" element={<Update />} />
     
         <Route path="/principal" element={<PrincipalLayout />}>
-          <Route path="profile" element={<MyProfile />} />
+          <Route path="" element={<MyProfile />} />
           <Route path="product" element={<Product />} />
           <Route path="training" element={<Training />} />
           <Route path='donation' element={<DonationForm/>}/>
         </Route>
         <Route path="/government" element={<GovernmentLayout />}>
           {/* <Route path="achievements" element={<Achievements />} /> */}
-          <Route path="productgovt" element={<Product />} />
+          <Route path="" element={<Product />} />
           <Route path="donationgovt" element={<DonationFormgovt />} />
         </Route>
       </Routes>

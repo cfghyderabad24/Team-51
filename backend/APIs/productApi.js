@@ -31,4 +31,4 @@ productApp.delete('/product/:name',expressAsyncHandler(async(req,res)=>{
     res.send({message:"Product Deleted"})
 }))
 
-module.exports=productApp
+module.exports=productApp 

@@ -9,12 +9,18 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [number , setNumber] = useState("");
     const [role, setRole] = useState(""); // No default value
+    const [interest, setInterest] = useState(""); // No default value
+
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!role) {
+            setMessage("Please select a role");
+            return;
+        }
+        if (!interest) {
             setMessage("Please select a role");
             return;
         }
@@ -75,7 +81,7 @@ function Signup() {
                         <option value="Parents">Parents</option>
                         <option value="CSR">CSR</option>
                     </select>
-                    <select id="role" className='dropdown' value={role} onChange={(e) => setRole(e.target.value)} required>
+                    <select id="interest" className='dropdown' value={interest} onChange={(e) => setInterest(e.target.value)} required>
                         <option value="" className='dropdown'>Interests</option>
                         {/* <option value="Student">Student</option> */}
                         <option value="Program-CodingToy">Program-CodingToy</option>
