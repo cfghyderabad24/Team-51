@@ -1,21 +1,22 @@
+// src/components/pricipal/PrincipalLayout.js
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import './PrincipalLayout.css';
+import './PrincipalLayout.css'; // Add necessary CSS for styling
 
 const PrincipalLayout = () => {
   return (
     <div>
-      <nav className="navbar">
-        <ul> 
-          <li><Link to="/principal/profile">MyProfile</Link></li>
+      <nav>
+        <ul>
+          <li><Link to="/principal/profile">Profile</Link></li>
           <li><Link to="/principal/product">Product</Link></li>
           <li><Link to="/principal/training">Training</Link></li>
-          <li><Link to="/principal/donation">Training</Link></li>
+          <li><Link to="/principal/donation">Donation</Link></li>
         </ul>
       </nav>
-      <div className="container">
+      <main>
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 };
