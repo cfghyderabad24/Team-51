@@ -29,12 +29,24 @@ Content-Type: application/json
     "username":"Lakshita",
     "password":"Lakshita",
     "phone":909090909,
-    "email":"lakshita@gmail.com"
+    "email":"lakshita@gmail.com",
+    "score":
 
 }
 
 ###
 post http://localhost:4000/mail-api/discount
+Content-Type: application/json
+
+{
+    "name":"Lakshita",
+    "email":"22071A12F6@vnrvjiet.in",
+    "discountAmount":50
+
+}
+
+###
+post http://localhost:4000/product-api/product
 Content-Type: application/json
 
 {
