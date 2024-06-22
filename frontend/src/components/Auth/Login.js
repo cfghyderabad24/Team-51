@@ -1,88 +1,59 @@
-import React,{useState} from 'react'
-import Layout from '../../components/layout/layout'
-import axios from "axios"
-import {useNavigate,useLocation} from "react-router-dom"
-import toast from "react-hot-toast"
-import "../../styles/AuthStyles.css"
-import {useAuth} from "../../context/auth"
-const Login = () => {
-  const [email,setEmail] =useState("")
-  const [password,setPassword] =useState("")
-  const [auth,setAuth] =useAuth()
-  const navigate = useNavigate()
-  const location = useLocation()
-  // form function
-  const handleSubmit =async (e) =>{
-    e.preventDefault()
-    try {
-      const res= await axios.post("/api/v1/auth/login",{email,password})
-      if(res && res.data.success){
-        toast.success(res.data && res.data.message)
-        setAuth({
-          ...auth,
-          user:res.data.user,
-          token:res.data.token,
-        })
-        localStorage.setItem('auth',JSON.stringify(res.data))
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import  './css/Login.css'; 
 
-        navigate(location.state||"/");
-      }else{
-        toast.error(res.data.message)
-      }
-    } catch (error) {
-      console.log(error)
-      toast.error("oops!!! something went wrong")
-      
-    }
-  }
-  return (
-    <Layout title="Register - GROCERY STORE">
-    <div className="form-container " style={{ minHeight: "90vh" }}>
-      <form onSubmit={handleSubmit}>
-        <h4 className="title">LOGIN</h4>
+function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
-        <div className="mb-3">
-          <input
-            type="email"
-            autoFocus
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
-            id="exampleInputEmail1"
-            placeholder="Email "
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder=" Password"
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <button
-            type="button"
-            className="btn forgot-btn"
-            onClick={() => {
-              navigate("/forgot-password");
-            }}
-          >
-            Forgot Password
-          </button>
-        </div>
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
+            setMessage(response.data.message);
+            if (response.data.redirectTo) {
+                navigate('/'); // Redirect to home page
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+            setMessage('Error during login: ' + (error.response?.data?.message || error.message));
+        }
+    };
 
-        <button type="submit" className="btn btn-primary">
-          LOGIN
-        </button>
-      </form>
-    </div>
-  </Layout>
-);
-};
+    return (
+        <div className="login-container">
+            <div className="login-card">
+                <h2>Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <button type="submit">Login</button>
+                </form>
+                {message && <p className="error">{message}</p>}
+                <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+                <button className='btn btn-success' onClick={() => {
+              navigate("/forgot");
+            }}>Forget Password</button>
+            </div>
+        </div>
+    );
+}
 
 export default Login;
