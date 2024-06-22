@@ -6,17 +6,20 @@ const Training = () => {
     {
       title: "ProGame Product Demo",
       url: "https://www.youtube.com/embed/ZeS9yXJa13Q",
-      link: "https://www.youtube.com/watch?v=ZeS9yXJa13Q"
+      link: "https://www.youtube.com/watch?v=ZeS9yXJa13Q",
+      iframeTitle: "ProGame Product Demo"
     },
     {
       title: "ProGame Product Toy",
       url: "https://www.youtube.com/embed/VCM1ohwhmmA",
-      link: "https://www.youtube.com/watch?v=VCM1ohwhmmA"
+      link: "https://www.youtube.com/watch?v=VCM1ohwhmmA",
+      iframeTitle: "ProGame Product Toy"
     },
     {
       title: "ProGame Product DIY",
       url: "https://www.youtube.com/embed/mBngh5aRaMs",
-      link: "https://www.youtube.com/watch?v=mBngh5aRaMs"
+      link: "https://www.youtube.com/watch?v=mBngh5aRaMs",
+      iframeTitle: "ProGame Product DIY"
     },
     // Add more video data as needed
   ];
@@ -32,6 +35,7 @@ const Training = () => {
             </a>
             <div className="video-wrapper">
               <iframe
+                title={video.iframeTitle}
                 width="100%"
                 height="200"
                 src={video.url}
