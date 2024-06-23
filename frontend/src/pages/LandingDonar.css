@@ -1,0 +1,36 @@
+/* DonationForm.css */
+
+.donation-form {
+    max-width: 400px; /* Adjust max-width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .donation-form h2,
+  .donation-form label {
+    margin-top: 0;
+    color: black; /* Set headings and labels to black */
+  }
+  
+  .donation-form input[type="number"],
+  .donation-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .donation-form input[type="number"]:focus,
+  .donation-form input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff; /* Change border color on focus */
+  }
+  
+  /* Style for PayPal button */
+  .paypal-button-container {
+    margin-top: 20px;
+  }
+  
