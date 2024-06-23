@@ -28,22 +28,23 @@ function Signup() {
             let response;
             switch(role) {
                 case 'Faculty':
-                    response = await axios.post('http://localhost:5000/faculty-api/faculty', {name: name, email :email, password :password, interests: interest });
+                    response = await axios.post('http://localhost:4000/faculty-api/faculty', { name, email, password, interests: interest });
                     break;
                 case 'Student':
-                    response = await axios.post('http://localhost:4000/student-api/student', {name: name, email :email, password :password, interests: interest });
+                    console.log('hi')
+                    response = await axios.post('http://localhost:4000/student-api/student', { name, email, password, interests: interest });
                     break;
                 case 'NGO':
-                    response = await axios.post('http://localhost:5000/ngo-api/ngo', {name: name, email :email, password :password, interests: interest });
+                    response = await axios.post('http://localhost:4000/ngo-api/ngo', { name, email, password, interests: interest });
                     break;
                 case 'Govt':
-                    response = await axios.post('http://localhost:5000/govt-api/govt', {name: name, email :email, password :password, interests: interest });
+                    response = await axios.post('http://localhost:4000/govt-api/govt', { name, email, password, interests: interest });
                     break;
                 case 'Parents':
-                    response = await axios.post('http://localhost:5000/parent-api/parents', {name: name, email :email, password :password, interests: interest });
+                    response = await axios.post('http://localhost:4000/parent-api/parents', { name, email, password, interests: interest });
                     break;
                 case 'CSR':
-                    response = await axios.post('http://localhost:5000/csr-api/csr', {name: name, email :email, password :password, interests: interest });
+                    response = await axios.post('http://localhost:4000/csr-api/csr', { name, email, password, interests: interest });
                     break;
                 default:
                     setMessage("Invalid role selected");
@@ -119,5 +120,5 @@ function Signup() {
         </div>
     );
 }
-
+           
 export default Signup;

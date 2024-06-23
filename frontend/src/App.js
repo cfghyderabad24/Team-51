@@ -13,6 +13,7 @@ import DonationForm from './components/pricipal/DonationFormgovt';
 import GovernmentLayout from './components/govt/GovernmentLayout';
 import DonationFormgovt from './components/pricipal/DonationFormgovt';
 import ProductGovt from './components/govt/ProductGovt';
+import Favorites from './components/pricipal/Favourites';
 
 import './App.css'; 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="product" element={<Product />} />
           <Route path="training" element={<Training />} />
           <Route path='donation' element={<DonationForm/>}/>
+          <Route path="favourates" element={<Favorites />} />
         </Route>
         <Route path="/government" element={<GovernmentLayout />}>
           {/* <Route path="achievements" element={<Achievements />} /> */}
