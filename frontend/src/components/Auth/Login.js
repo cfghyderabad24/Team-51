@@ -7,36 +7,38 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
-    const [role, setRole] = useState(""); 
+    //const [role, setRole] = useState(""); 
     const navigate = useNavigate(); 
 
     const handleSubmit = async (e) => {
         e.preventDefault();  
-        if (!role) {
-            setMessage("Please select a role");
-            return;
-        }
+        
         try {
             let response;
-            switch(role) {
+            let resp = await axios.post('http://localhost:4000/user-api/login', {  email, password});
+            console.log(resp.data.user);
+            console.log(resp);
+            switch(resp.data.user.role) {
+                
+
                 case 'Faculty':
-                    response = await axios.post('http://localhost:4000/faculty-api/faculty', {  email, password,});
+                    response = await axios.post('http://localhost:4000/faculty-api/login', {  email, password,});
                     break;
                 case 'Student':
                     console.log('hi')
                     response = await axios.post('http://localhost:4000/student-api/login', {  email, password});
                     break;
                 case 'NGO':
-                    response = await axios.post('http://localhost:4000/ngo-api/ngo', {  email, password});
+                    response = await axios.post('http://localhost:4000/ngo-api/login', {  email, password});
                     break;
                 case 'Govt':
-                    response = await axios.post('http://localhost:4000/govt-api/govt', {  email, password});
+                    response = await axios.post('http://localhost:4000/govt-api/login', {  email, password});
                     break;
                 case 'Parents':
-                    response = await axios.post('http://localhost:4000/parent-api/parents', {  email, password});
+                    response = await axios.post('http://localhost:4000/parent-api/login', {  email, password});
                     break;
                 case 'CSR':
-                    response = await axios.post('http://localhost:4000/csr-api/csr', {  email, password });
+                    response = await axios.post('http://localhost:4000/csr-api/login', {  email, password });
                     break;
                 default:
                     setMessage("Invalid role selected");
@@ -72,7 +74,7 @@ function Login() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    <select id="role" className='dropdown' value={role} onChange={(e) => setRole(e.target.value)} required>
+                    {/* <select id="role" className='dropdown' value={role} onChange={(e) => setRole(e.target.value)} required>
                         <option value="" className='dropdown'>Select Role</option>
                         <option value="Student">Student</option>
                         <option value="Faculty">Faculty</option>
@@ -80,7 +82,7 @@ function Login() {
                         <option value="Govt">Govt</option>
                         <option value="Parents">Parents</option>
                         <option value="CSR">CSR</option>
-                    </select>
+                    </select> */}
                     <button type="submit">Login</button>
                 </form>
                 {message && <p className="error">{message}</p>}

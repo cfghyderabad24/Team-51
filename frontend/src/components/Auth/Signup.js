@@ -25,10 +25,14 @@ function Signup() {
             return;
         }
         try {
+            let res = await axios.post('http://localhost:4000/user-api/user', { email, password,role });
             let response;
             switch(role) {
                 case 'Faculty':
                     response = await axios.post('http://localhost:4000/faculty-api/faculty', { name, email, password, interests: interest });
+                    /*if(response==='Login sucess'){
+                        navigate()
+                    }*/
                     break;
                 case 'Student':
                     console.log('hi')

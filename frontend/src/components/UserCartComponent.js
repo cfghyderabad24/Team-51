@@ -1,11 +1,11 @@
 import React from 'react';
  
-function UserCartComponent(){
-    cartCourses
-    deleteCourseFromCartFunction
-    totalAmountCalculationFunction
-    setCartCourses
-
+function UserCartComponent({
+    cartCourses,
+    deleteCourseFromCartFunction,
+    totalAmountCalculationFunction,
+    setCartCourses,
+}) {
 return (
 <div className={`cart ${cartCourses.length > 0 ? 'active' : ''}`}>
     <h2>My Cart</h2>
