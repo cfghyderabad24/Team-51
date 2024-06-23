@@ -38,7 +38,7 @@ import StudentProducts from './components/StudentProducts';
 import FavouritesGov from './components/govt/FavouritesGov';
 import LandingProducts from './components/LandingProducts'
 
-import Game from './components/game/Game';
+import Game from './components/game/game';
 
 import './App.css'; 
 import LandingDonor from './pages/LandingDonor';
@@ -84,7 +84,7 @@ function App(){
           <Route path="favourates " element={<Favorites />} />
         </Route> 
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> 
 
   );
 }
