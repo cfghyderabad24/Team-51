@@ -46,16 +46,15 @@ adminApp.post('/login',expressAsyncHandler(async(req,res)=>{
     }
 }))
 
-// adminApp.post('/discount/:productId',expressAsyncHandler(async(req,res)=>{
-//     const productid=(+req.params.productId)
-//     const userCred=req.body
-//     const dbProduct=await productCollection.findOne({productId:productid})
-//     if(dbProduct===null){
-//         res.send({message:"No such product"})
-//     }else{
-       
-//     }
-// }))
+adminApp.put('/discount/:productName',expressAsyncHandler(async(req,res)=>{
+    const productName=req.params.productName
+    const newDiscount=req.body
+    console.log('hello');
+    const dbRes=await productCollection.updateOne({name:productName},{$set:{discount:newDiscount}})
+    
+    console.log(dbRes);
+    res.send({message:"Product discount updated"})
+}))
 
 adminApp.post('/announcement',expressAsyncHandler(async(req,res)=>{
     const newAnnouncement=req.body

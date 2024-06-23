@@ -55,3 +55,14 @@ Content-Type: application/json
     "discountAmount":50
 
 }
+
+###
+put http://localhost:4000/admin-api/discount/ProGame
+Content-Type: application/json
+
+{
+    "discountName":"Teacher's day",
+    "dicountPercentage":"5%",
+    "Promocode":"ABCD"
+
+}
