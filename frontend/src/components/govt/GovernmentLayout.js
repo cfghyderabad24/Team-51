@@ -9,7 +9,7 @@ const GovernmentLayout = () => {
         <ul>
           <li><Link to="">Products</Link></li>
           <li><Link to="donationgovt">Donation</Link></li>
-          <li><Link to = "/government/favourates">Favourates</Link></li>
+          <li><Link to = "/government/favourates">Favourites</Link></li>
         </ul>
       </nav>
       <Outlet />
