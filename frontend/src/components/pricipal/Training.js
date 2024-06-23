@@ -4,18 +4,24 @@ import './Training.css';
 const Training = () => {
   const videos = [
     {
-      title: "Training Video 1",
-      url:  "https://www.youtube.com/embed/ZeS9yXJa13Q"
+      title: "ProGame Product Demo",
+      url: "https://www.youtube.com/embed/ZeS9yXJa13Q",
+      link: "https://www.youtube.com/watch?v=ZeS9yXJa13Q",
+      iframeTitle: "ProGame Product Demo"
     },
     {
-      title: "Training Video 2", 
-      url: "https://www.youtube.com/embed/VCM1ohwhmmA"
+      title: "ProGame Product Toy",
+      url: "https://www.youtube.com/embed/VCM1ohwhmmA",
+      link: "https://www.youtube.com/watch?v=VCM1ohwhmmA",
+      iframeTitle: "ProGame Product Toy"
     },
     {
-      title: "Training Video 3",
-      url: "https://www.youtube.com/embed/mBngh5aRaMs"
+      title: "ProGame Product DIY",
+      url: "https://www.youtube.com/embed/mBngh5aRaMs",
+      link: "https://www.youtube.com/watch?v=mBngh5aRaMs",
+      iframeTitle: "ProGame Product DIY"
     },
-    // Add more video data as needed 
+    // Add more video data as needed
   ];
 
   return (
@@ -24,14 +30,17 @@ const Training = () => {
       <div className="card-container">
         {videos.map((video, index) => (
           <div key={index} className="card">
-            <h3>{video.title}</h3>
+            <a href={video.link} target="_blank" rel="noopener noreferrer">
+              <h3>{video.title}</h3>
+            </a>
             <div className="video-wrapper">
-              <iframe 
-                width="100%" 
-                height="200" 
-                src={video.url} 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              <iframe
+                title={video.iframeTitle}
+                width="100%"
+                height="200"
+                src={video.url}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen>
               </iframe>
             </div>

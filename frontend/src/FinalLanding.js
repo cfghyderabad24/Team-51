@@ -18,7 +18,9 @@ const FinalLanding = () => {
          <Route path="/landingdonor" element={<LandingDonor/>} /> 
         <Route path="/landingproducts" element={<LandingProducts/>} />
         <Route path="/login" element={<Login/>} />
-        {/* <Route path='/signup' element ={<Signup/>}>/></Route> */}
+        <Route path='/signup' element ={<Signup/>}/>
+        
+        
       </Routes>
     </Router>
   );

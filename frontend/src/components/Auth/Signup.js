@@ -7,8 +7,10 @@ function Signup() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [number , setNumber] = useState("");
+    const [number, setNumber] = useState("");
     const [role, setRole] = useState(""); // No default value
+    const [interest, setInterest] = useState(""); // No default value
+
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
@@ -18,8 +20,36 @@ function Signup() {
             setMessage("Please select a role");
             return;
         }
+        if (!interest) {
+            setMessage("Please select an interest");
+            return;
+        }
         try {
-            const response = await axios.post('http://localhost:5000/api/users/signup', { name, email, password });
+            let response;
+            switch(role) {
+                case 'Faculty':
+                    response = await axios.post('http://localhost:4000/faculty-api/faculty', { name, email, password, interests: interest });
+                    break;
+                case 'Student':
+                    console.log('hi')
+                    response = await axios.post('http://localhost:4000/student-api/student', { name, email, password, interests: interest });
+                    break;
+                case 'NGO':
+                    response = await axios.post('http://localhost:4000/ngo-api/ngo', { name, email, password, interests: interest });
+                    break;
+                case 'Govt':
+                    response = await axios.post('http://localhost:4000/govt-api/govt', { name, email, password, interests: interest });
+                    break;
+                case 'Parents':
+                    response = await axios.post('http://localhost:4000/parent-api/parents', { name, email, password, interests: interest });
+                    break;
+                case 'CSR':
+                    response = await axios.post('http://localhost:4000/csr-api/csr', { name, email, password, interests: interest });
+                    break;
+                default:
+                    setMessage("Invalid role selected");
+                    return;
+            }
             setMessage(response.data.message);
             navigate('/login'); // Redirect to login page after successful signup
         } catch (error) {
@@ -50,10 +80,10 @@ function Signup() {
                         required
                     />
                     <input
-                        type="text1"
-                        placeholder="Enter  Your NUmber"
-                        id="text1"
-                        // value={}
+                        type="text"
+                        placeholder="Enter Your Number"
+                        id="number"
+                        value={number}
                         onChange={(e) => setNumber(e.target.value)}
                         required
                     />
@@ -64,26 +94,23 @@ function Signup() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                    /> 
+                    />
                     <select id="role" className='dropdown' value={role} onChange={(e) => setRole(e.target.value)} required>
                         <option value="" className='dropdown'>Select Role</option>
-                        {/* <option value="Student">Student</option> */}
-                        <option value="Admin">Admin</option>
+                        <option value="Student">Student</option>
                         <option value="Faculty">Faculty</option>
                         <option value="NGO">NGO</option>
-                        <option value="Govt">Govt</option> 
+                        <option value="Govt">Govt</option>
                         <option value="Parents">Parents</option>
                         <option value="CSR">CSR</option>
                     </select>
-                    <select id="role" className='dropdown' value={role} onChange={(e) => setRole(e.target.value)} required>
+                    <select id="interest" className='dropdown' value={interest} onChange={(e) => setInterest(e.target.value)} required>
                         <option value="" className='dropdown'>Interests</option>
-                        {/* <option value="Student">Student</option> */}
                         <option value="Program-CodingToy">Program-CodingToy</option>
-                        <option value="Faculty">Faculty</option>
-                        <option value="NGO">NGO</option>
-                        <option value="Govt">Govt</option> 
-                        <option value="Parents">Parents</option>
-                        <option value="CSR">CSR</option>
+                        <option value="Robotics">Robotics</option>
+                        <option value="AI">AI</option>
+                        <option value="IoT">IoT</option>
+                        <option value="Machine Learning">Machine Learning</option>
                     </select>
                     <button type="submit">Sign Up</button>
                 </form>
@@ -93,5 +120,5 @@ function Signup() {
         </div>
     );
 }
-
+           
 export default Signup;

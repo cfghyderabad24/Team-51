@@ -1,4 +1,3 @@
-// src/components/pricipal/DonationForm.js
 import React, { useState } from 'react';
 import { PayPalButton } from 'react-paypal-button-v2';
 import './DonationForm.css'; // Import the CSS file
@@ -7,6 +6,7 @@ const DonationForm = () => {
   const [amount, setAmount] = useState(10); // Default donation amount
   const [donorName, setDonorName] = useState('');
   const [mobileNo, setMobileNo] = useState('');
+  const [email, setEmail] = useState(''); // State for email
 
   // Handle donation amount change
   const handleAmountChange = (event) => {
@@ -23,10 +23,21 @@ const DonationForm = () => {
     setMobileNo(event.target.value);
   };
 
+  // Handle email change
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
   // Handle donation completion
   const handleDonationSuccess = (details, data) => {
     alert('Donation successful! Thank you for your support.');
     console.log(details, data); // You can further process the donation details here
+  };
+
+  // Function to handle PAN card verification or related functionality
+  const handlePANVerification = () => {
+    alert('PAN Card verification initiated.'); // Placeholder action
+    // Implement your PAN card verification logic here
   };
 
   return (
@@ -53,6 +64,8 @@ const DonationForm = () => {
         value={mobileNo}
         onChange={handleMobileNoChange}
       />
+     {/* Add email input field */}
+      
       <div className="paypal-button-container">
         <PayPalButton
           amount={amount}
@@ -61,6 +74,16 @@ const DonationForm = () => {
             clientId: '', // Replace with your dummy PayPal client ID
           }}
         />
+      </div>
+      <div>
+      <label htmlFor="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={handleEmailChange}
+      />
+        <button onClick={handlePANVerification}>Verify PAN Card</button> {/* Placeholder button */}
       </div>
     </div>
   );

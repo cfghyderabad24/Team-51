@@ -7,21 +7,49 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const [role, setRole] = useState(""); 
     const navigate = useNavigate(); 
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault();  
+        if (!role) {
+            setMessage("Please select a role");
+            return;
+        }
         try {
-            const response = await axios.post('http://localhost:4000/api/users/login', { email, password });
-            setMessage(response.data.message);
-            if (response.data.redirectTo) {
-                navigate('/'); // Redirect to home page
+            let response;
+            switch(role) {
+                case 'Faculty':
+                    response = await axios.post('http://localhost:4000/faculty-api/faculty', {  email, password,});
+                    break;
+                case 'Student':
+                    console.log('hi')
+                    response = await axios.post('http://localhost:4000/student-api/login', {  email, password});
+                    break;
+                case 'NGO':
+                    response = await axios.post('http://localhost:4000/ngo-api/ngo', {  email, password});
+                    break;
+                case 'Govt':
+                    response = await axios.post('http://localhost:4000/govt-api/govt', {  email, password});
+                    break;
+                case 'Parents':
+                    response = await axios.post('http://localhost:4000/parent-api/parents', {  email, password});
+                    break;
+                case 'CSR':
+                    response = await axios.post('http://localhost:4000/csr-api/csr', {  email, password });
+                    break;
+                default:
+                    setMessage("Invalid role selected");
+                    return;
             }
+            setMessage(response.data.message);
+            navigate('/login'); // Redirect to login page after successful signup
         } catch (error) {
-            console.error('Error during login:', error);
-            setMessage('Error during login: ' + (error.response?.data?.message || error.message));
+            console.error('Error during registration:', error);
+            setMessage('Error during registration: ' + (error.response?.data?.message || error.message));
         }
     };
+    
 
     return (
         <div className="login-container">
@@ -44,6 +72,15 @@ function Login() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    <select id="role" className='dropdown' value={role} onChange={(e) => setRole(e.target.value)} required>
+                        <option value="" className='dropdown'>Select Role</option>
+                        <option value="Student">Student</option>
+                        <option value="Faculty">Faculty</option>
+                        <option value="NGO">NGO</option>
+                        <option value="Govt">Govt</option>
+                        <option value="Parents">Parents</option>
+                        <option value="CSR">CSR</option>
+                    </select>
                     <button type="submit">Login</button>
                 </form>
                 {message && <p className="error">{message}</p>}
