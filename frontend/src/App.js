@@ -25,6 +25,7 @@ import GovernmentLayout from './components/govt/GovernmentLayout';
 import DonationFormgovt from './components/pricipal/DonationFormgovt';
 import ProductGovt from './components/govt/ProductGovt';
 import Favorites from './components/pricipal/Favourites';
+<<<<<<< HEAD
 import NgosPage from './NgosPage';
 import FundingPage from './FundingPage';
 import NgoMain from './NgoMain';
@@ -33,6 +34,9 @@ import Games from './components/Games';
 import Leaderboards from './components/Leaderboards';
 import Courses from './components/Courses';
 import StudentProducts from './components/StudentProducts';
+=======
+import FavouritesGov from './components/govt/FavouritesGov';
+>>>>>>> login
 
 import './App.css'; 
 
@@ -71,8 +75,14 @@ function App(){
           
           <Route path="" element={<Product />} />
           <Route path="donationgovt" element={<DonationFormgovt />} />
+<<<<<<< HEAD
         </Route> 
        </Routes>
+=======
+          <Route path="favourates " element={<Favorites />} />
+        </Route> 
+      </Routes>
+>>>>>>> login
     </BrowserRouter>
 
   );
