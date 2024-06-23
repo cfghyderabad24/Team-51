@@ -9,7 +9,6 @@ import Update from './components/newsletter/Update';
 import Ngo from './Ngo'
 import LandingPage from './pages/LandingPage';
 // import PrincipalLayout from   './PrincipalLayout'
-import Game from './components/game/game'
 
 
 
@@ -31,7 +30,7 @@ import NgosPage from './NgosPage';
 import FundingPage from './FundingPage';
 import NgoMain from './NgoMain';
 import StudentNavbar from './components/StudentNavbar';
-import Games from './components/Games';
+// import Game from './components/game/Game'
 import Leaderboards from './components/Leaderboards';
 import Courses from './components/Courses';
 import StudentProducts from './components/StudentProducts';
@@ -39,7 +38,7 @@ import StudentProducts from './components/StudentProducts';
 import FavouritesGov from './components/govt/FavouritesGov';
 import LandingProducts from './components/LandingProducts'
 
-
+import Game from './components/game/Game';
 
 import './App.css'; 
 import LandingDonor from './pages/LandingDonor';
@@ -58,6 +57,7 @@ function App(){
         <Route path="/funding" element={<FundingPage />} />
         <Route path="/newsletter" element={<NewsLetter />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/games" element={<Game />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgot" element={<ForgotPasssword />} />
         <Route path="/update" element={<Update />} />
@@ -65,7 +65,7 @@ function App(){
         <Route path='/landingproducts' element={<LandingProducts/>}/>
 
 
-        <Route path="/students/games" element={<Games />} />
+        {/* <Route path="/students/games" element={<Games />} /> */}
           <Route path="/students/leaderboards" element={<Leaderboards />} />
           <Route path="/students/courses" element={<Courses />} />
           <Route path="/students/studentproducts" element={<StudentProducts/>} />

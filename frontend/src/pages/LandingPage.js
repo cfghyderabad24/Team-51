@@ -55,7 +55,7 @@ const LandingPage = () => {
       <div className="spacer"></div>
 
       {/* Heading */}
-      <h2 className="heading">Coding Toy</h2>
+      <h2 >Coding Toy</h2>
 
       {/* Inner Section */}
       <div className="inner-section">
