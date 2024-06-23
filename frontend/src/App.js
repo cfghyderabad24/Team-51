@@ -14,6 +14,7 @@ import GovernmentLayout from './components/govt/GovernmentLayout';
 import DonationFormgovt from './components/pricipal/DonationFormgovt';
 import ProductGovt from './components/govt/ProductGovt';
 import Favorites from './components/pricipal/Favourites';
+import FavouritesGov from './components/govt/FavouritesGov';
 
 import './App.css'; 
 
@@ -38,7 +39,8 @@ function App() {
           {/* <Route path="achievements" element={<Achievements />} /> */}
           <Route path="" element={<Product />} />
           <Route path="donationgovt" element={<DonationFormgovt />} />
-        </Route>
+          <Route path="favourates " element={<Favorites />} />
+        </Route> 
       </Routes>
     </BrowserRouter>
   );

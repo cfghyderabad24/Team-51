@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-function Favorites() {
+function FavouritesGov() {
   const { state } = useLocation();
 
   return (
@@ -23,4 +23,4 @@ function Favorites() {
   );
 }
 
-export default Favorites;
+export default FavouritesGov;

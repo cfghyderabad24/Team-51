@@ -7,20 +7,24 @@ function Product() {
   const navigate = useNavigate();
 
   const handleFavoriteClick = (product) => {
-    setFavorites((prevFavorites) => [...prevFavorites, product]);
+    if (!favorites.some((fav) => fav.title === product.title)) {
+      setFavorites((prevFavorites) => [...prevFavorites, product]);
+    }
   };
+  
 
   const products = [
-    { title: 'Pro Game 1', description: 'Description for Material 1.' },
-    { title: 'Pro Game 2', description: 'Description for Material 2.' },
-    { title: 'Pro Game 3', description: 'Description for Material 3.' },
-    { title: 'Pro Game 4', description: 'Description for Material 4.' },
-    { title: 'Pro Game 5', description: 'Description for Material 5.' },
+    { title: 'Pro Game 1', description: 'A first-of-its-kind Kit that allows a child to start learning to Program WITHOUT a Computer. The kit, for which a Patent has been filed for, includes physical blocks and an Android App. The output of the child’s creativity can be viewed by scanning the' },
+    { title: 'Pro Game 2', description: 'A first-of-its-kind Kit that allows a child to start learning to Program WITHOUT a Computer. The kit, for which a Patent has been filed for, includes physical blocks and an Android App. The output of the child’s creativity can be viewed by scanning the' },
+    { title: 'Pro Game 3', description: 'A first-of-its-kind Kit that allows a child to start learning to Program WITHOUT a Computer. The kit, for which a Patent has been filed for, includes physical blocks and an Android App. The output of the child’s creativity can be viewed by scanning the' },
+    { title: 'Pro Game 4', description: 'A first-of-its-kind Kit that allows a child to start learning to Program WITHOUT a Computer. The kit, for which a Patent has been filed for, includes physical blocks and an Android App. The output of the child’s creativity can be viewed by scanning the' },
+    { title: 'Pro Game 5', description: 'A first-of-its-kind Kit that allows a child to start learning to Program WITHOUT a Computer. The kit, for which a Patent has been filed for, includes physical blocks and an Android App. The output of the child’s creativity can be viewed by scanning the' },
   ];
 
   const navigateToFavorites = () => {
     navigate('/favorites', { state: { favorites } });
   };
+  
 
   return (
     <div>
@@ -39,7 +43,7 @@ function Product() {
           </div>
         ))}
       </div>
-      <button onClick={navigateToFavorites} className="btn btn-primary mt-5">Go to Favorites</button>
+     
     </div>
   );
 }
