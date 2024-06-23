@@ -13,5 +13,58 @@
     font-size: 1.2rem;
   }
 
+
+  .container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .spacer {
+    height: 20px;
+  }
+  
+  .heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .inner-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .video-overlay {
+    cursor: pointer;
+  }
+  
+  .video-thumbnail {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .image-widget {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .caption {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }
+  
+
   
   
