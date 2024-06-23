@@ -3,7 +3,7 @@ import React from 'react';
 function SearchComponent({ searchCourse, courseSearchUserFunction }) {
     return (
         <header className="App-header">
-            <h1>NGO name</h1>
+            <h1>Ngo name</h1>
             <div className="search-bar">
                 <input
                     type="text"

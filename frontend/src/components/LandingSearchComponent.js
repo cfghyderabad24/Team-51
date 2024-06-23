@@ -3,7 +3,7 @@ import React from 'react';
 function LandingSearchComponent({ searchCourse, courseSearchUserFunction }) {
     return (
         <header className="App-header">
-            <h1>Products</h1>
+            <p>producsts</p>
             <div className="search-bar">
                 <input
                     type="text"
