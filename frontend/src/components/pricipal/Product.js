@@ -39,7 +39,7 @@ function Product() {
           </div>
         ))}
       </div>
-      <button onClick={navigateToFavorites} className="btn btn-primary mt-5">Go to Favorites</button>
+      {/* <button onClick={navigateToFavorites} className="btn btn-primary mt-5">Go to Favorites</button> */}
     </div>
   );
 }

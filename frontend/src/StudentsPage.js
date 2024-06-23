@@ -16,14 +16,14 @@ const StudentsPage = () => {
     <Router>
       <div>
         <h1>Students Page</h1>
-        <StudentNavbar />
+        <StudentNavbar />  
         <Routes>
           <Route path="/students/games" element={<Games />} />
           <Route path="/students/leaderboards" element={<Leaderboards />} />
           <Route path="/students/courses" element={<Courses />} />
           <Route path="/students/studentproducts" element={<StudentProducts/>} />
-        </Routes>
-      </div>
+        </Routes> 
+      </div> 
     </Router>
   );
 };

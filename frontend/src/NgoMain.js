@@ -16,7 +16,7 @@ const NgoMain = () => {
       </div>
       <button onClick={handleFundingClick} style={{ padding: '5px 10px' }}>
         Go to Funding
-      </button>
+      </button> 
     </nav>
   );
 }
